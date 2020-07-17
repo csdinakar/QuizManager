@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <th:block th:insert="~{fragments/fragment-header :: meta}"></th:block>
+  <th:block th:insert="~{fragments/fragment-header :: title}"></th:block>
+  <th:block th:insert="~{fragments/fragment-header :: link}"></th:block>
+  <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+<body>
+<th:block th:insert="fragments/fragment-header :: header"></th:block>
+<th:block th:insert="~{fragments/fragment-header :: body/script}"></th:block>
+ 
+ <div class="container">
+  <div class="row">
+ <div class="col-lg-12 overflow-auto">
+      <h1>Leader Board</h1>
+      <table class="table table-bordered table-lg mt-1">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">User Name</th>
+          <th scope="col">Score</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${leaderList.empty}">
+          <th scope="row">No result available</th>
+        </tr>
+        <tr th:each="leadList : ${leaderList}" th:style="${'background:#85ce7f !important'}">
+          <td><span th:text="${leadList.userName}"> User Name </span></td>
+          <td><span th:text="${leadList.totalScore}"> Score </span></td>
+         </tr>
+        </tbody>
+      </table>
+    </div>
+      </div>
+</div>
+</body>
+</html>
