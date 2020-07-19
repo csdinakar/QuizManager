@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import in.app.quizmanager.model.User;
 import in.app.quizmanager.model.UserDto;
+import in.app.quizmanager.model.Users;
 import in.app.quizmanager.repository.UserRepository;
 import in.app.quizmanager.util.EncryptionUtil;
 
@@ -19,13 +19,13 @@ public class UserServiceImpl implements UserService {
   @Autowired EncryptionUtil encryptionUtil;
 
   @Override
-  public User findByUsername(String username) {
+  public Users findByUsername(String username) {
     return userRepository.findByUsername(username);
   }
 
   @Override
-  public User loadUserByUsername(String username) throws UsernameNotFoundException {
-    User user = userRepository.findByUsername(username);
+  public Users loadUserByUsername(String username) throws UsernameNotFoundException {
+	  Users user = userRepository.findByUsername(username);
     if (user == null) {
       throw new UsernameNotFoundException("User " + username + " was not found in the database");
     }
@@ -33,8 +33,8 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public User saveUser(UserDto userDto) throws GeneralSecurityException {
-    User user = new User();
+  public Users saveUser(UserDto userDto) throws GeneralSecurityException {
+	  Users user = new Users();
     user.setName(userDto.getName());
     user.setUsername(userDto.getUsername());
     user.setPassword(encryptionUtil.encrypt(userDto.getPassword()));

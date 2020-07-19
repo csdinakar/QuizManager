@@ -19,7 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 
 @Entity
-public class User implements UserDetails, Serializable {
+public class Users implements UserDetails, Serializable {
   private static final long serialVersionUID = 1L;
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

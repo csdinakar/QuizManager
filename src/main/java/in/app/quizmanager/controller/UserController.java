@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import in.app.quizmanager.model.User;
+import in.app.quizmanager.model.Users;
 import in.app.quizmanager.model.UserDto;
 import in.app.quizmanager.service.UserService;
 
@@ -43,7 +43,7 @@ public class UserController {
       result.rejectValue("username", Errors.NESTED_PATH_SEPARATOR,"Confirm password not equal to  password" );
     }
 
-    User existingUser = userService.findByUsername(userDto.getUsername());
+    Users existingUser = userService.findByUsername(userDto.getUsername());
     if(existingUser != null){
       result.rejectValue("username", Errors.NESTED_PATH_SEPARATOR,"Username already exits" );
     }
@@ -51,7 +51,7 @@ public class UserController {
       return "user";
     }
     try {
-      User user = userService.saveUser(userDto);
+    	Users user = userService.saveUser(userDto);
       request.login(userDto.getUsername(), userDto.getPassword());
       
   
