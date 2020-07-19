@@ -29,7 +29,7 @@ public class LeaderBoard implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false,name = "USER")
+    @Column(nullable = false,name = "USERNAME")
     @NotNull
     @NotEmpty
     private String userName;

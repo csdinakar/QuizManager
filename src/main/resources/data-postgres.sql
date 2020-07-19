@@ -1,5 +1,5 @@
-insert into USER (ADMIN, USERNAME, NAME, PASSWORD,LOCKED) values (true,'admin','Admin','A+98FnMIylJGjl2jhHcUYQ==',false);
-insert into USER (ADMIN, USERNAME, NAME, PASSWORD,LOCKED) values (false,'user','User','A+98FnMIylJGjl2jhHcUYQ==',false);
+insert into USERS (ADMIN, USERNAME, NAME, PASSWORD,LOCKED) values (true,'admin','Admin','A+98FnMIylJGjl2jhHcUYQ==',false);
+insert into USERS (ADMIN, USERNAME, NAME, PASSWORD,LOCKED) values (false,'user','User','A+98FnMIylJGjl2jhHcUYQ==',false);
 
 insert into category(name) values ('SPRING BOOT');
 
