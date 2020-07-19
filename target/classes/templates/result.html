@@ -58,7 +58,7 @@
         </tr>
         <tr th:each="leadList : ${leaderList}" th:style="${'background:#85ce7f !important'}">
           <td><span th:text="${leadList.userName}"> User Name </span></td>
-          <td><span th:text="${leadList.score}"> Score </span></td>
+          <td><span th:text="${leadList.totalScore}"> Score </span></td>
          </tr>
         </tbody>
       </table>
